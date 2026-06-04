@@ -4,30 +4,10 @@ import { motion } from "framer-motion";
 import { Award, ShieldCheck, Trophy, BadgeCheck } from "lucide-react";
 
 const certifications = [
-  {
-    title: "Google Cloud Prompt Engineering Guide",
-    issuer: "Google Cloud",
-    date: "2024",
-    skills: ["Prompt Engineering", "Generative AI"],
-  },
-  {
-    title: "Forage Tech Simulation",
-    issuer: "Forage",
-    date: "2023",
-    skills: ["Software Engineering"],
-  },
-  {
-    title: "Be10x AI Workshop",
-    issuer: "Be10x",
-    date: "2023",
-    skills: ["AI Tools", "Productivity"],
-  },
-  {
-    title: "Career Essentials in Generative AI by Microsoft and LinkedIn",
-    issuer: "Microsoft & LinkedIn Learning",
-    date: "May 2026",
-    skills: ["Generative AI", "Microsoft Copilot", "Responsible AI"],
-  },
+  "Google Cloud Prompt Engineering Guide",
+  "Forage Tech Simulation",
+  "Be10x AI Workshop",
+  "Career Essentials in Generative AI by Microsoft and LinkedIn",
 ];
 
 const achievements = [
@@ -64,27 +44,12 @@ export default function Achievements() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass p-5 rounded-xl border border-white/5 flex items-start gap-4 hover:border-primary/30 transition-colors"
+                className="glass p-5 rounded-xl border border-white/5 flex items-center gap-4 hover:border-primary/30 transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary mt-0.5">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
                   <Award size={20} />
                 </div>
-                <div className="flex flex-col gap-1 flex-1">
-                  <span className="text-lg font-medium text-zinc-200 leading-snug">{cert.title}</span>
-                  <span className="text-sm text-zinc-400 font-medium">
-                    {cert.issuer} • {cert.date}
-                  </span>
-                  <div className="flex flex-wrap gap-1.5 mt-2">
-                    {cert.skills.map((skill, sIdx) => (
-                      <span
-                        key={sIdx}
-                        className="text-xs px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                <span className="text-lg font-medium text-zinc-200">{cert}</span>
               </motion.div>
             ))}
           </div>
