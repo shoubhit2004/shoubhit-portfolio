@@ -12,7 +12,7 @@ const certifications = [
 
 const achievements = [
   { title: "Gold Medal – Indian Robotics Championship", icon: <Trophy className="text-yellow-400" size={24} /> },
-  { title: "National Level Qualification", icon: <Award className="text-secondary" size={24} /> },
+  { title: "Excellence for Technical Creativity", icon: <Award className="text-secondary" size={24} /> },
   { title: "Committee Manager – Technoid", icon: <ShieldCheck className="text-primary" size={24} /> },
   { title: "Technical Secretary – TechX", icon: <ShieldCheck className="text-primary" size={24} /> },
 ];
