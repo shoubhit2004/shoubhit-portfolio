@@ -3,11 +3,32 @@
 import { motion } from "framer-motion";
 import { Award, ShieldCheck, Trophy, BadgeCheck } from "lucide-react";
 
-const certifications = [
-  "Google Cloud Prompt Engineering Guide",
-  "Forage Tech Simulation",
-  "Be10x AI Workshop",
-  "Career Essentials in Generative AI by Microsoft and LinkedIn",
+interface Certification {
+  title: string;
+  organization?: string;
+}
+
+const certifications: Certification[] = [
+  {
+    title: "5-Day AI Agents: Intensive Vibe Coding Course",
+    organization: "Google × Kaggle",
+  },
+  {
+    title: "Participated in Vibe2Ship — India's Biggest Vibe Coding Hackathon",
+    organization: "Coding Ninjas",
+  },
+  {
+    title: "Google Cloud Prompt Engineering Guide",
+  },
+  {
+    title: "Forage Tech Simulation",
+  },
+  {
+    title: "Be10x AI Workshop",
+  },
+  {
+    title: "Career Essentials in Generative AI by Microsoft and LinkedIn",
+  },
 ];
 
 const achievements = [
@@ -49,7 +70,12 @@ export default function Achievements() {
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
                   <Award size={20} />
                 </div>
-                <span className="text-lg font-medium text-zinc-200">{cert}</span>
+                <div className="flex flex-col">
+                  <span className="text-base md:text-lg font-medium text-zinc-200">{cert.title}</span>
+                  {cert.organization && (
+                    <span className="text-xs md:text-sm text-primary font-medium mt-0.5">{cert.organization}</span>
+                  )}
+                </div>
               </motion.div>
             ))}
           </div>

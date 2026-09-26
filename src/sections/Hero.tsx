@@ -58,7 +58,7 @@ export default function Hero() {
           </motion.h2>
 
           <motion.p variants={itemVariants} className="text-muted leading-relaxed max-w-xl">
-            Motivated BCA student with hands-on experience in software development, backend systems, automation, web scraping, and AI experimentation. Building digital experiences with clean code and modern aesthetics.
+            Motivated MCA student with hands-on experience in software development, backend systems, automation, web scraping, and AI experimentation. Building digital experiences with clean code and modern aesthetics.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mt-4">

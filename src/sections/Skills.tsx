@@ -13,7 +13,7 @@ const skills = [
   },
   {
     category: "Web",
-    items: ["HTML", "CSS"],
+    items: ["HTML", "CSS", "JavaScript"],
   },
   {
     category: "Database",

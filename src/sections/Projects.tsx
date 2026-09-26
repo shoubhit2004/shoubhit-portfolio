@@ -4,14 +4,37 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  github?: string;
+  live?: string;
+  featured?: boolean;
+}
+
+const projects: Project[] = [
+  {
+    title: "NeonChat — Persona AI Chatbot",
+    description: "A lightweight AI-powered chatbot featuring multiple entertainment and utility personas with distinct personalities and communication styles, powered by Google Gemini and a FastAPI backend.",
+    tech: ["Python", "FastAPI", "Google Gemini API", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/shoubhit2004/Neon_Chat",
+    live: "https://neonchat-frontend.onrender.com/",
+    featured: true,
+  },
+  {
+    title: "InsightForge — AI Opportunity Discovery Platform",
+    description: "An AI-powered opportunity discovery and business idea analysis platform that researches markets, analyzes competitors and customer pain points, and helps founders identify and evaluate potential business opportunities.",
+    tech: ["Next.js", "FastAPI", "Google Gemini API", "DuckDuckGo Search", "SQLite"],
+    github: "https://github.com/shoubhit2004/InsightForge",
+    live: "https://insightforge-frontend.onrender.com/",
+  },
   {
     title: "Flipkart Mobile Data Scraper & Product Filtering Platform",
     description: "A comprehensive web scraping and filtering platform to extract and analyze mobile product data from Flipkart.",
     tech: ["Scrapy", "Python", "Database Integration", "Frontend Filtering"],
     github: "https://github.com/shoubhit2004/flipkart-scraper",
     live: "https://jocular-gelato-f8087e.netlify.app",
-    featured: true,
   },
   {
     title: "Line Crossing Detection System",
@@ -46,7 +69,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={`glass p-8 rounded-3xl border border-white/5 relative group overflow-hidden ${
+            className={`glass p-6 md:p-8 rounded-3xl border border-white/5 relative group overflow-hidden ${
               project.featured ? "lg:col-span-2" : ""
             }`}
           >
@@ -58,7 +81,7 @@ export default function Projects() {
                 {project.title}
               </h3>
               
-              <p className="text-muted mb-6 flex-1 text-lg">
+              <p className="text-muted mb-6 flex-1 text-base md:text-lg leading-relaxed">
                 {project.description}
               </p>
               
@@ -70,28 +93,30 @@ export default function Projects() {
                 ))}
               </div>
               
-              <div className="flex items-center gap-4 mt-auto">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors"
-                  >
-                    <GithubIcon size={18} /> View Code
-                  </a>
-                )}
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors"
-                  >
-                    <ExternalLink size={18} /> Live Demo
-                  </a>
-                )}
-              </div>
+              {(project.github || project.live) && (
+                <div className="flex items-center gap-4 mt-auto">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors"
+                    >
+                      <GithubIcon size={18} /> View Code
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors"
+                    >
+                      <ExternalLink size={18} /> Live Demo
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </motion.div>
         ))}

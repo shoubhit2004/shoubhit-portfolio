@@ -1,16 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, GraduationCap, Award, Briefcase } from "lucide-react";
+import { GraduationCap, Award, Briefcase } from "lucide-react";
 
-const timeline = [
+interface TimelineItem {
+  year: string;
+  title: string;
+  subtitle?: string;
+  icon: React.ReactNode;
+  highlight?: boolean;
+}
+
+const timeline: TimelineItem[] = [
   { year: "2019", title: "Gold Medal – Indian Robotics Championship", icon: <Award size={16} /> },
   { year: "2023", title: "Completed Senior Secondary", icon: <GraduationCap size={16} /> },
-  { year: "2024", title: "Started BCA at St. Xavier’s College Jaipur", icon: <GraduationCap size={16} /> },
+  { year: "2023", title: "Started BCA at St. Xavier’s College Jaipur", icon: <GraduationCap size={16} /> },
   { year: "2024", title: "Committee Manager – Technoid", icon: <Briefcase size={16} /> },
   { year: "2025", title: "Technical Secretary – TechX", icon: <Briefcase size={16} /> },
   { year: "2025", title: "Java & PHP Internship at Volyo Solutions Pvt Ltd", icon: <Briefcase size={16} /> },
-  { year: "2026", title: "Future Full Stack Developer", icon: <Calendar size={16} />, highlight: true },
+  {
+    year: "2026",
+    title: "Started MCA at Xavier Institute of Management & Informatics (XIMI), Jaipur",
+    subtitle: "Currently pursuing MCA • Expected Graduation: 2028",
+    icon: <GraduationCap size={16} />,
+    highlight: true,
+  },
 ];
 
 export default function About() {
@@ -57,6 +71,11 @@ export default function About() {
                   <h3 className={`text-lg font-medium ${item.highlight ? 'text-white' : 'text-zinc-200'} group-hover:text-white transition-colors relative z-10`}>
                     {item.title}
                   </h3>
+                  {item.subtitle && (
+                    <p className="text-sm text-zinc-400 mt-2 relative z-10 font-normal">
+                      {item.subtitle}
+                    </p>
+                  )}
                 </div>
               </div>
             </motion.div>
